@@ -4,7 +4,6 @@ import "../style/index.scss";
  *  1) Here are all the variables to be used in the conditions
  */
 function render(variables = {}) {
-  
   /**
    *  2) The conditional rendering logic starts here
    */
@@ -22,18 +21,39 @@ function render(variables = {}) {
   if (variables.lastname !== null) {
     randomname2 = variables.lastname;
   }
+
+  let twitteracct = "Twitteracct";
+  if (variables.twitter !== null) {
+    twitteracct = variables.twitter;
+  }
+
+  let github1 = "githubacct";
+  if (variables.github !== null) {
+    github1 = variables.github;
+  }
+
+  let linkedin = "linkedinacct";
+  if (variables.linkedin !== null) {
+    linkedin = variables.linkedin;
+  }
+
+  let insta = "instagramacct";
+  if (variables.instagram !== null) {
+    insta = variables.instagram;
+  }
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${randomname} ${randomname2}</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${twitteracct}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github1}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedin}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${insta}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -51,7 +71,7 @@ window.onload = function() {
     socialMediaPosition: "left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: "githubacct",
     linkedin: null,
     instagram: null,
     name: null,
